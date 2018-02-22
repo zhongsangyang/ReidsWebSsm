@@ -23,6 +23,7 @@
         <property name="testOnBorrow" value="${redis.testOnBorrow}" />
     </bean>
     <!--配置文件加载-->
+    <!--单个文件配置加载网址     https://www.cnblogs.com/tankaixiong/p/3660075.html-->
 
     <bean id="resourcePropertySource" class="org.springframework.core.io.support.ResourcePropertySource">
         <constructor-arg name="name" value="redis.properties"/>
@@ -49,9 +50,15 @@
     <bean id="stringRedisSerializer"  class="org.springframework.data.redis.serializer.StringRedisSerializer" />
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
         <property name="connectionFactory"   ref="jedisConnectionFactory" />
-        <property name="keySerializer" ref="stringRedisSerializer" />
-        <property name="hashKeySerializer" ref="stringRedisSerializer" />
-        <property name="valueSerializer" ref="stringRedisSerializer"/>
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+        <property name="hashKeySerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
         <property name="hashValueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
         </property>

@@ -34,7 +34,7 @@
         <!-- mybatis的配置文件路径 -->
         <property name="configLocation" value="classpath:/config/mybatis.xml" />
         <!-- mapper文件的路径 -->
-        <property name="mapperLocations" value="classpath:config/Mappering/*Mapping.xml" />
+        <property name="mapperLocations" value="classpath:/config/Mappering/*Mapping.xml" />
     </bean>
 
     <!--

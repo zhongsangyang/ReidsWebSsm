@@ -15,8 +15,9 @@
     <!-- 扫包 -->
     <context:component-scan base-package="redisBasePackage.controller"></context:component-scan>
     <!-- 静态资源过滤 -->
-    <mvc:resources location="/js/" mapping="/js/**/"/>
-
+    <mvc:resources mapping="/bootstrap-3.3.7-dist/js/**/**/" location="/bootstrap-3.3.7-dist/js/"></mvc:resources>
+    <mvc:resources mapping="/bootstrap-3.3.7-dist/css/**/" location="/bootstrap-3.3.7-dist/css/"></mvc:resources>
+    <mvc:resources mapping="/bootstrap-3.3.7-dist/fonts/**/" location="/bootstrap-3.3.7-dist/fonts/"></mvc:resources>
 
     <!-- 视图渲染 jsp/freemaker/velocity-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,5 +27,11 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!--1024 *200即200k-->
+        <property name="maxUploadSize" value="204800"></property>
+        <!--推迟文件解析 以便能够在uploadActon中获取异常-->
+        <property name="resolveLazily" value="true"></property>
+    </bean>
 </beans>

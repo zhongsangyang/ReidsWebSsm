@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path=request.getContextPath();
+%>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,7 +13,7 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=path%>/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,10 +24,27 @@
 </head>
 <body>
 <h1>你好，世界！</h1>
+<div style="width: 400px;height: 300px">
+    <form action="<%=path%>/upload/file" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputEmail1">上传文件</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请选择要上传的文件">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="<%=path%>/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="<%=path%>/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
 </body>
 </html>

@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/antirez/redis/unstable/src/redis-trib.zb
+https://raw.githubusercontent.com/antirez/redis/unstable/src/redis-trib.rb

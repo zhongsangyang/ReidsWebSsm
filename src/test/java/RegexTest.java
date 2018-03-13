@@ -95,5 +95,24 @@ public class RegexTest {
             System.out.print(matcher2.group() + "\t");
         }
     }
+    @Test
+    public void matcher3Test(){
+        Pattern pattern2 = Pattern.compile("#\\s{1}[a-z]+\\-{1}[a-z]+\\-{1}[a-z]+\\s{1}(?=15000)");
+        Matcher matcher2 = pattern2.matcher("# cluster-node-timeout 15000");
+        if(matcher2.find()){
+            System.out.println(matcher2.group());
+        }
+
+    }
+    @Test
+    public void matcher4Test(){
+        Pattern pattern2 = Pattern.compile("appendonly no");
+        Matcher matcher2 = pattern2.matcher("appendonly no");
+        System.out.println("appendonly".length());
+        if(matcher2.find()){
+            System.out.println(matcher2.group());
+        }
+
+    }
 
 }
